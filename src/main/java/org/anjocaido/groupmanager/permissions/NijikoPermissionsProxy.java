@@ -67,52 +67,7 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public void removeUserInfo(String user, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void addGroupPermission(String group, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void removeGroupPermission(String group, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void addGroupInfo(String group, String node, Object data) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void removeGroupInfo(String group, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void addUserPermission(String user, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void removeUserPermission(String user, String node) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void addUserInfo(String user, String node, Object data) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void setDefaultWorld(String world) {
-        //throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setDirectory(File directory) {
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -154,17 +109,7 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public void setCache(Map<String, Boolean> Cache) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void setCache(String world, Map<String, Boolean> Cache) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void setCacheItem(String player, String permission, boolean data) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -174,27 +119,12 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public Map<String, Boolean> getCache() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public Map<String, Boolean> getCache(String world) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean getCacheItem(String player, String permission) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public boolean getCacheItem(String world, String player, String permission) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void removeCachedItem(String player, String permission) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -235,21 +165,9 @@ public class NijikoPermissionsProxy extends Control {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getGroup(name);
     }
 
-    @Deprecated
-    @Override
-    public String getGroup(String name) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroup(name);
-    }
-
     @Override
     public String[] getGroups(String world, String name) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getGroups(name);
-    }
-
-    @Deprecated
-    @Override
-    public String[] getGroups(String name) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroups(name);
     }
 
     @Override
@@ -257,20 +175,14 @@ public class NijikoPermissionsProxy extends Control {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().inGroup(name,group);
     }
 
-    @Deprecated
     @Override
-    public boolean inGroup(String name, String group) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().inGroup(name,group);
+    public boolean inSingleGroup(String world, String name, String group) {
+    	return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().inSingleGroup(name,group);
     }
-
+    
     @Override
     public String getGroupPrefix(String world, String group) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getGroupPrefix(group);
-    }
-
-    @Override
-    public String getGroupPrefix(String group) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupPrefix(group);
     }
 
     @Override
@@ -279,19 +191,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public String getGroupSuffix(String group) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupSuffix(group);
-    }
-
-    @Override
     public boolean canGroupBuild(String world, String group) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().canGroupBuild(group);
-    }
-
-    @Deprecated
-    @Override
-    public boolean canGroupBuild(String group) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().canGroupBuild(group);
     }
 
     @Override
@@ -300,18 +201,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public String getGroupPermissionString(String group, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupPermissionString(group,permission);
-    }
-
-    @Override
     public int getGroupPermissionInteger(String world, String group, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getGroupPermissionInteger(group,permission);
-    }
-
-    @Override
-    public int getGroupPermissionInteger(String group, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupPermissionInteger(group,permission);
     }
 
     @Override
@@ -320,18 +211,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public boolean getGroupPermissionBoolean(String group, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupPermissionBoolean(group,permission);
-    }
-
-    @Override
     public double getGroupPermissionDouble(String world, String group, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getGroupPermissionDouble(group,permission);
-    }
-
-    @Override
-    public double getGroupPermissionDouble(String group, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getGroupPermissionDouble(group,permission);
     }
 
     @Override
@@ -340,18 +221,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public String getUserPermissionString(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getUserPermissionString(name,permission);
-    }
-
-    @Override
     public int getUserPermissionInteger(String world, String name, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getUserPermissionInteger(name,permission);
-    }
-
-    @Override
-    public int getUserPermissionInteger(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getUserPermissionInteger(name,permission);
     }
 
     @Override
@@ -360,18 +231,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public boolean getUserPermissionBoolean(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getUserPermissionBoolean(name,permission);
-    }
-
-    @Override
     public double getUserPermissionDouble(String world, String name, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getUserPermissionDouble(name,permission);
-    }
-
-    @Override
-    public double getUserPermissionDouble(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getUserPermissionDouble(name,permission);
     }
 
     @Override
@@ -380,18 +241,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public String getPermissionString(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getPermissionString(name,permission);
-    }
-
-    @Override
     public int getPermissionInteger(String world, String name, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getPermissionInteger(name,permission);
-    }
-
-    @Override
-    public int getPermissionInteger(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getPermissionInteger(name,permission);
     }
 
     @Override
@@ -400,18 +251,8 @@ public class NijikoPermissionsProxy extends Control {
     }
 
     @Override
-    public boolean getPermissionBoolean(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getPermissionBoolean(name,permission);
-    }
-
-    @Override
     public double getPermissionDouble(String world, String name, String permission) {
         return plugin.getWorldsHolder().getWorldData(world).getPermissionsHandler().getPermissionDouble(name,permission);
-    }
-
-    @Override
-    public double getPermissionDouble(String name, String permission) {
-        return plugin.getWorldsHolder().getDefaultWorld().getPermissionsHandler().getPermissionDouble(name,permission);
     }
 
 }
