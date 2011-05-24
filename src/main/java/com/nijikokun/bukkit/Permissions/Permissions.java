@@ -2,7 +2,6 @@ package com.nijikokun.bukkit.Permissions;
 
 import com.nijiko.Misc;
 import com.nijiko.configuration.DefaultConfiguration;
-import com.nijiko.permissions.Control;
 import com.nijiko.permissions.PermissionHandler;
 import java.io.File;
 import java.util.logging.Logger;
@@ -38,11 +37,16 @@ public class Permissions extends JavaPlugin {
     public static String version = "2.0";
     public static PermissionHandler Security = null;
     public static Misc Misc = new Misc();
+    public static Plugin instance;
     public static Server Server;
     private Listener Listener = null;
     private DefaultConfiguration config = null;
     private GroupManager groupManager;
 
+    public Permissions() {
+    	instance = this;
+    }
+    
     @Override
     public void onDisable() {
         //compiled code
